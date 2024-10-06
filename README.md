@@ -1,0 +1,2 @@
+# Nasa Space Apps
+ ExoSky project from the group Cation in Quito, Ecuador. We create a simulation of stars in the galaxy and exoplanet positions in space so that we can jump between exoplanets and see how the nightsky changes when you move across space. For this we rendered the actual positions of thousands of stars and for each planet recalculated each star's brighness concidering it's distance to each star
