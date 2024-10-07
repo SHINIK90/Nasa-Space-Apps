@@ -1,7 +1,5 @@
-# Nasa Space Apps 
+# Nasa Space Apps Navitas Simulation Project
  ExoSky project from the group Cation in Quito, Ecuador. We create a simulation of stars in the galaxy and exoplanet positions in space so that we can jump between exoplanets and see how the nightsky changes when you move across space. For this we rendered the actual positions of thousands of stars and for each planet recalculated each star's brighness concidering it's distance to each star
-
-# Star Simulation Project
 
 ### Project Overview
 This project is a star simulation environment built in Unity that showcases the stars of the night sky, including the Orion constellation, which is highlighted in red. The simulation supports switching perspectives to view the stars from various exoplanet locations. The project uses stellar data such as Right Ascension (RA), Declination (DEC), and Parallax to calculate the position of stars in the scene, while brightness is calculated dynamically based on the camera's distance from the stars.
