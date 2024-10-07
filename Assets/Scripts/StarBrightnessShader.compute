@@ -1,0 +1,30 @@
+#pragma kernel CSMain
+
+struct Star {
+    float3 position;
+    float intrinsicBrightness;  // M value
+    float calculatedBrightness; // Output: Brightness based on distance
+};
+
+// Buffers
+RWStructuredBuffer<Star> starBuffer; // Buffer containing all the stars
+float3 cameraPosition;  // The current camera position in space
+
+[numthreads(1, 1, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID) {
+    // Fetch the star from the buffer
+    Star star = starBuffer[id.x];
+    
+    // Calculate distance from the camera to the star
+    float3 direction = cameraPosition - star.position;
+    float distance = length(direction);
+    
+    // Recalculate brightness using the formula M + 5 * log10(distance / 10)
+    star.calculatedBrightness = star.intrinsicBrightness + 5 * log10(distance / 10.0);
+
+    // Ensure brightness is clamped to avoid negative values
+    star.calculatedBrightness = max(star.calculatedBrightness, 0.0);
+
+    // Write the updated star data back to the buffer
+    starBuffer[id.x] = star;
+}
